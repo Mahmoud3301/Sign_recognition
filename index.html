@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL Letter Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>ASL Letter Recognition</h1>
+                <button id="theme-toggle" class="theme-button" aria-label="Toggle theme">🌙</button>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <div class="content">
+            <!-- Camera panel -->
+            <div class="camera-panel">
+                <div class="video-container">
+                    <img src="{{ url_for('video_feed') }}" alt="ABLG Recognition Camera Feed">
+                    <div class="loading-overlay">
+                        <div class="spinner"></div>
+                        <p>Loading camera...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right panel -->
+            <div class="right-panel">
+                <div class="info-section">
+                    <h3>Instructions</h3>
+                    <div class="letter-info">
+                        <p>Show ASL signs clearly in front of the camera</p>
+                        <p>Currently supported letters:</p>
+                        <div class="supported-letters">
+                            <span>A</span>
+                            <span>B</span>
+                            <span>L</span>
+                            <span>G</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+            themeToggle.textContent = body.classList.contains('dark-theme') ? '🌙' : '☀️';
+            
+            // Save theme preference
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        // Handle video feed loading
+        const videoFeed = document.querySelector('.video-container img');
+        videoFeed.addEventListener('load', () => {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            loadingOverlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
