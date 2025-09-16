@@ -64,18 +64,7 @@ Mahmoud Saeed
 
 ---
 
-## 📦 Installation
 
-```bash
-# Clone the repo
-git clone https://github.com/Mahmoud3301/Sign_recognition.git
-cd Sign_recognition
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python main.py
 
 
 
