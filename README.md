@@ -1,6 +1,6 @@
 # ✋🖐 Sign_Recognition — Hand Sign Recognition System
 
-![Sign Recognition](https://github.com/Mahmoud3301/Sign_recognition/blob/main/sample_image.png?raw=true) 
+![Sign Recognition](https://github.com/Mahmoud3301/Sign_recognition/blob/main/sign.jpeg?raw=true) 
 
 [![Python](https://img.shields.io/badge/Language-Python-blue?logo=python)]()
 [![OpenCV](https://img.shields.io/badge/Library-OpenCV-red)]()
